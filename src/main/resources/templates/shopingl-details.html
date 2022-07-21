@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopinglist details</title>
+</head>
+<body>
+
+
+<table class="table">
+    <thead>
+    <tr>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name List</th>
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <td th:text="${id}"/>
+    <td th:text="${shopinglist}"/> <!-- widok do poprawki -->
+
+
+    </tbody>
+</table>
+
+<a th:href="@{/shopinglists/list}">Return to shopinglist</a>
+
+
+</body>
+</html>
