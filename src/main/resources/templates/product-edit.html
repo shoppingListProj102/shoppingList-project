@@ -18,15 +18,24 @@
     </label>
 
     <label>
-        ILość/jednostka:
+        ILość:
         <input type="text" th:field="*{quantity}"/>
     </label>
 
+    <label>
+        Jednostka:
+        <input type="text" th:field="*{unit}"/>
+    </label>
 
     <label>
         Opis/uwagi:
         <input type="text" th:field="*{description}"/>
     </label>
+
+<!--    <label>-->
+<!--        Zakupiony/niezakupiony:-->
+<!--        <input type="text" th:field="*{isBought}? 'true' : 'false'"/>-->
+<!--    </label>-->
 
 
     <button type="submit">Edytuj produkt</button>
@@ -34,7 +43,7 @@
 
 </form>
 
-<a th:href="@{/products/list}">Return to products list</a>
+<a th:href="@{/products/list}">Return to product lists</a>
 
 </body>
 </html>

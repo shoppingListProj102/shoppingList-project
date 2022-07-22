@@ -40,7 +40,7 @@ public class ShopingListController {
 
     @PostMapping("/shopinglists/save")
     public String addNewShopingList(@ModelAttribute("emptyList") ShopingList shopingList){
-        log.info("Adds new shopinglist " + shopingList);
+        log.info("Adds new shopinglist " + shopingList.getNameList());
 
 
         shopingListService.add(shopingList);
@@ -56,7 +56,7 @@ public class ShopingListController {
 
     @PostMapping("/shopinglists/postedit")
     public String editShopingList(@ModelAttribute("editList") ShopingList shopingList){
-        log.info("Edit shopinglist: " + shopingList);
+        log.info("Edit shopinglist: " + shopingList.getNameList());
 
 
         shopingListService.update(shopingList);
@@ -77,6 +77,12 @@ public class ShopingListController {
         log.info("Deleted shopinglist for id: " + id);
         shopingListService.delete(id);
         return "redirect:/shopinglists/list";
+    }
+
+    @GetMapping("/shopinglist/{id}") // może się przydać do łączenia list po ich id?
+    public String showProductsList(@PathVariable Integer id, ModelMap modelMap) {
+        modelMap.addAttribute("productList", shopingListService.getById(id));
+        return "list-products";
     }
 
 }

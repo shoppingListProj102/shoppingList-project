@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Product details</title>
+    <title th:text="${product.name}"/>
 </head>
 <body>
 
@@ -14,7 +14,9 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Unit</th>
         <th scope="col">Description</th>
+        <th scope="col">Is Bought</th>
     </tr>
     </thead>
     <tbody>
@@ -22,12 +24,14 @@
     <td th:text="${product.id}"/>
     <td th:text="${product.name}"/>
     <td th:text="${product.quantity}"/>
+    <td th:text="${product.unit}"/>
     <td th:text="${product.description}"/>
+    <td th:text="${product.isBought}"/>
 
     </tbody>
 </table>
 
-<a th:href="@{/products/list}">Return to products list</a>
+<a th:href="@{/products/list}">Return to product lists</a>
 
 </body>
 </html>

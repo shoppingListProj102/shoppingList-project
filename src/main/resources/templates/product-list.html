@@ -15,7 +15,9 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Quantity</th>
+        <th scope="col">Unit</th>
         <th scope="col">Description</th>
+        <th scope="col">Is Bought</th>
 
     </tr>
     </thead>
@@ -27,7 +29,10 @@
         <td th:text="${product.id}"/>
         <td th:text="${product.name}"/>
         <td th:text="${product.quantity}"/>
+        <td th:text="${product.unit}"/>
         <td th:text="${product.description}"/>
+        <td th:text="${product.isBought}? 'Yes' : 'No'"/>
+
 
         <td>  <a th:href="@{/products/list/{id}/(id=${product.id})}"> Details product</a> </td>
         <td>  <a th:href="@{/products/edit/{id}/(id=${product.id})}"> Edit product</a> </td>
@@ -37,6 +42,7 @@
     </tbody>
 </table>
 <a th:href="@{/products/create}">Add new product</a>
+<a th:href="@{/shopinglists/list}">Return to shoping lists</a>
 
 </body>
 </html>

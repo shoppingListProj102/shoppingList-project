@@ -2,6 +2,7 @@ package pl.sda.shoppingList.service.impl;
 
 import org.springframework.stereotype.Service;
 import pl.sda.shoppingList.model.Product;
+import pl.sda.shoppingList.model.ShopingList;
 import pl.sda.shoppingList.repository.ProductRepository;
 import pl.sda.shoppingList.service.ProductService;
 
@@ -44,6 +45,5 @@ public class ProductServiceImpl implements ProductService {
     public void delete(Integer id) {
         productRepository.deleteById(id);
     }
-
 
 }

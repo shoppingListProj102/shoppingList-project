@@ -42,7 +42,7 @@ public class ProductController {
 
     @PostMapping("/products/save")
     public String addNewProduct(@ModelAttribute("emptyProduct") Product product){
-        log.info("Adds new product " + product);
+        log.info("Adds new product " + product.getName());
 
 
         productService.add(product);
@@ -59,7 +59,7 @@ public class ProductController {
 
     @PostMapping("/products/postedit")
     public String editProduct(@ModelAttribute("editProduct") Product product){
-        log.info("Edit product: " + product);
+        log.info("Edit product: " + product.getName());
 
 
         productService.update(product);
@@ -82,6 +82,5 @@ public class ProductController {
         productService.delete(id);
         return "redirect:/products/list";
     }
-
 
 }

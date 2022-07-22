@@ -22,7 +22,11 @@ public class Product {
 
     private Integer quantity;
 
+    private String unit;
+
     private String description;
+
+    private boolean isBought;
 
 
     @ManyToOne
