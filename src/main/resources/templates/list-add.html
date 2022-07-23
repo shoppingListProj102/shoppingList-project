@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form method="post" th:action="@{list//list/save}" th:object="${emptyList}">
+<form method="post" th:action="@{/list/save}" th:object="${emptyList}">
 
     <label>
         Name:
@@ -16,6 +16,8 @@
     <button type="submit">Create list</button>
 
 </form>
+
+<a th:href="@{/list/all}">Return to lists</a>
 
 </body>
 </html>

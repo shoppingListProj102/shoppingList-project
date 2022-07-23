@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.sda.shoppingList.dto.ProductDTO;
 import pl.sda.shoppingList.model.Product;
 import pl.sda.shoppingList.model.ProductList;
 import pl.sda.shoppingList.service.ProductService;
@@ -22,16 +23,19 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/product/add")
-    public String addProduct(ModelMap modelMap) {
-        modelMap.addAttribute("emptyProduct", new Product());
+    @GetMapping("/product/add/listid={id}")
+    public String addProduct(@PathVariable Integer id, ModelMap modelMap) {
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setListId(id);
+        modelMap.addAttribute("emptyProduct", productDTO);
+
         return "product-add";
     }
 
-    @PostMapping("product/save")
-    public String saveProduct(@ModelAttribute("emptyProduct") Product product) {
-        productService.add(product);
-        return "redirect/list/" + product.getProductList().getId();
+    @PostMapping("/list/product/save")
+    public String saveProduct(@ModelAttribute("emptyProduct") ProductDTO productDTO) {
+        productService.add(productDTO);
+        return "redirect:/list/" + productDTO.getListId();
     }
 
     @GetMapping("/product/edit/{id}")
@@ -41,9 +45,9 @@ public class ProductController {
     }
 
     @PostMapping("/product/update")
-    public String updateProduct(@ModelAttribute("product") Product product){
-        productService.update(product);
-        return "redirect/list/" + product.getProductList().getId();
+    public String updateProduct(@ModelAttribute("product") ProductDTO productDTO){
+        productService.update(productDTO);
+        return "redirect/list/" + productDTO.getListId();
     }
 
 //    @GetMapping("/product/delete/{id}")

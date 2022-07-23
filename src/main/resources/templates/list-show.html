@@ -9,23 +9,26 @@
 <table>
   <thead>
   <tr>
-    <th>Nazwa</th>
-    <th>Jednostka</th>
-    <th>Ilość</th>
-    <th>Kupione?</th>
+    <th>Name</th>
+    <th>Quantity</th>
+    <th>Unit</th>
+    <th>Bought?</th>
   </tr>
   </thead>
   <tbody>
   <tr th:each="product : ${productList.productList}">
     <td th:text="${product.productName}"/>
-    <td th:text="${product.unit}"/>
     <td th:text="${product.quantity}"/>
-    <td th:text="${product.isBought} ? 'tak' : 'nie'"/>
+    <td th:text="${product.unit}"/>
+    <td th:text="${product.isBought} ? 'YES' : 'NO'"/>
     </div>
   </tr>
   </tbody>
 </table>
-
+<!--<a th:href="@{/list/1/product/add}">Add new product</a>-->
+<!--<a th:href="@{/list/{id}(id=${productList.id})/product/add}">Add new product</a>-->
+<a th:href="@{/product/add/listid={id}(id=${productList.id})}">Add new product</a>
+<a th:href="@{/list/all}">Return to lists</a>
 
 </body>
 </html>
