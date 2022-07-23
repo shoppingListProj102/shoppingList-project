@@ -5,10 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+import pl.sda.shoppingList.dto.ShopingListDto;
 import pl.sda.shoppingList.model.ShopingList;
 import pl.sda.shoppingList.service.ShopingListService;
 
@@ -79,10 +78,27 @@ public class ShopingListController {
         return "redirect:/shopinglists/list";
     }
 
-    @GetMapping("/shopinglist/{id}") // może się przydać do łączenia list po ich id?
-    public String showProductsList(@PathVariable Integer id, ModelMap modelMap) {
-        modelMap.addAttribute("productList", shopingListService.getById(id));
-        return "list-products";
+
+//    @GetMapping("/shopinglist/{id}") // może się przydać do łączenia list po ich id?
+//    public String showProductsList(@PathVariable Integer id, ModelMap modelMap) {
+//        modelMap.addAttribute("productList", shopingListService.getById(id));
+//        return "list-products";
+//    }
+
+
+
+
+
+
+    @GetMapping("/shopinglists/add")
+    public String addShopingListForm(ShopingListDto shopingListDto) {
+        return "addShopingList";
     }
 
+    @PostMapping("/shopinglists/add")
+    public String saveShopingList(@Validated ShopingListDto shopingListDto){
+
+        Integer listId = shopingListService.addShopingList(shopingListDto);
+        return "redirect:/shopinglists/list";
+    }
 }

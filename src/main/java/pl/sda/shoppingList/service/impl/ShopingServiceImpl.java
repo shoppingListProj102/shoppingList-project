@@ -1,6 +1,7 @@
 package pl.sda.shoppingList.service.impl;
 
 import org.springframework.stereotype.Service;
+import pl.sda.shoppingList.dto.ShopingListDto;
 import pl.sda.shoppingList.model.ShopingList;
 import pl.sda.shoppingList.repository.ShopingListRepository;
 import pl.sda.shoppingList.service.ShopingListService;
@@ -42,5 +43,14 @@ public class ShopingServiceImpl implements ShopingListService {
     @Override
     public void delete(Integer id) {
         shopingListRepository.deleteById(id);
+    }
+
+
+
+
+
+    @Override
+    public Integer addShopingList(ShopingListDto shopingListDto) {
+        return shopingListRepository.save(shopingListDto.toShopingList()).getId();
     }
 }

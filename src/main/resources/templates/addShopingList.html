@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add a new shopping list</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/shopinglists/add}" th:object="${shopingListDto}">
+
+    <label th:for="name">Name:</label>
+
+    <div>
+        Nazwa listy:
+        <input type="text" th:field="*{nameList}"/>
+    </div>
+
+    <div>
+        <input type="submit" value="Add list"/>
+    </div>
+
+
+
+
+</form>
+
+
+
+
+</body>
+</html>

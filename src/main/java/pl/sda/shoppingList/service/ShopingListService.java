@@ -1,5 +1,6 @@
 package pl.sda.shoppingList.service;
 
+import pl.sda.shoppingList.dto.ShopingListDto;
 import pl.sda.shoppingList.model.ShopingList;
 
 import java.util.List;
@@ -16,6 +17,15 @@ public interface ShopingListService {
     void update(ShopingList shopingList);
 
     void delete(Integer id);
+
+
+
+
+
+    Integer addShopingList(ShopingListDto shopingListDto);
+
+
+
 
 
 }
