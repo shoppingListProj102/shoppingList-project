@@ -11,23 +11,15 @@
 
 
     <label>
-        Nazwa produktu:
+        Product name:
         <input type="text" th:field="*{name}"/>
-    </label>
-
-    <label>
-        ILość:
+        Quantity:
         <input type="text" th:field="*{quantity}"/>
-    </label>
-
-    <label>
-        Jednostka:
+        Unit:
         <input type="text" th:field="*{unit}"/>
-    </label>
-
-    <label>
-        Opis/uwagi:
+        Description:
         <input type="text" th:field="*{description}"/>
+        <input type="hidden" th:field="*{listId}">
     </label>
 
 <!--    <label>-->

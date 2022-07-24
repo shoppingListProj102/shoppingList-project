@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -23,6 +23,6 @@ public class ShopingList {
 
 
     @OneToMany(mappedBy = "shopingList", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> products = new LinkedList<>();
+    private List<Product> products = new ArrayList<>();
 
 }

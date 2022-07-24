@@ -9,8 +9,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-public class ProductDto implements Serializable {
-
+public class ProductDto {
 
     private Integer id;
 
@@ -18,25 +17,29 @@ public class ProductDto implements Serializable {
 
     private String name;
 
+    private Integer quantity;
+
+    private String unit;
+
     private String description;
 
 
-    public ProductDto() {
-    }
-
-    public ProductDto(int listId, String name) {
-        this.listId = listId;
-        this.name = name;
-    }
-
-    public Product toProduct(){
-        return toProduct(new Product());
-    }
-
-    public Product toProduct(Product product){
-        product.setName(this.name);
-        product.setDescription(this.description);
-        return product;
-    }
+//    public ProductDto() {
+//    }
+//
+//    public ProductDto(int listId, String name) {
+//        this.listId = listId;
+//        this.name = name;
+//    }
+//
+//    public Product toProduct(){
+//        return toProduct(new Product());
+//    }
+//
+//    public Product toProduct(Product product){
+//        product.setName(this.name);
+//        product.setDescription(this.description);
+//        return product;
+//    }
 
 }

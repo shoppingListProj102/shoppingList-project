@@ -1,5 +1,6 @@
 package pl.sda.shoppingList.service;
 
+import pl.sda.shoppingList.dto.ProductDto;
 import pl.sda.shoppingList.model.Product;
 import pl.sda.shoppingList.model.ShopingList;
 
@@ -10,12 +11,15 @@ public interface ProductService {
 
     List<Product> getAll();
 
-    void add(Product product);
+    void add(ProductDto productDto);
 
     Product getById (Integer id);
 
-    void update(Product product);
+    void update(ProductDto productDto);
 
     void delete(Integer id);
+
+    void changeStatus(Integer id);
+
 
 }
