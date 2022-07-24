@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Getter
@@ -18,7 +17,8 @@ public class ProductList {
     private Integer id;
     private String name;
 
-    @OneToMany(mappedBy = "productList", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "productListId", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("IS_BOUGHT, PRODUCT_NAME")
     private List<Product> productList = new ArrayList<>();
 
 }

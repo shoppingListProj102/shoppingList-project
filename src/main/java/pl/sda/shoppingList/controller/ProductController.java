@@ -1,7 +1,6 @@
 package pl.sda.shoppingList.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,8 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.sda.shoppingList.dto.ProductDTO;
-import pl.sda.shoppingList.model.Product;
-import pl.sda.shoppingList.model.ProductList;
 import pl.sda.shoppingList.service.ProductService;
 
 @Slf4j
@@ -23,37 +20,43 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/product/add/listid={id}")
+    @GetMapping("/list/{id}/product")
     public String addProduct(@PathVariable Integer id, ModelMap modelMap) {
         ProductDTO productDTO = new ProductDTO();
-        productDTO.setListId(id);
+        modelMap.addAttribute("listId", id);
         modelMap.addAttribute("emptyProduct", productDTO);
-
         return "product-add";
     }
 
-    @PostMapping("/list/product/save")
-    public String saveProduct(@ModelAttribute("emptyProduct") ProductDTO productDTO) {
-        productService.add(productDTO);
-        return "redirect:/list/" + productDTO.getListId();
+    @PostMapping("/list/{id}/product")
+    public String saveProduct(@PathVariable Integer id, @ModelAttribute("emptyProduct") ProductDTO productDTO) {
+        productService.addProduct(productDTO, id);
+        return "redirect:/list/" + id;
     }
 
-    @GetMapping("/product/edit/{id}")
-    public String editProduct(@PathVariable Integer id, ModelMap modelMap) {
+    @GetMapping("/list/{listId}/product/edit/{id}")
+    public String editProduct(@PathVariable Integer listId, @PathVariable Integer id, ModelMap modelMap) {
         modelMap.addAttribute("product", productService.getProductById(id));
+        modelMap.addAttribute("listId", listId);
         return "product-edit";
     }
 
-    @PostMapping("/product/update")
-    public String updateProduct(@ModelAttribute("product") ProductDTO productDTO){
-        productService.update(productDTO);
-        return "redirect/list/" + productDTO.getListId();
+    @PostMapping("/list/{listId}/product/edit/{id}")
+    public String updateProduct(@PathVariable Integer listId, @PathVariable Integer id, @ModelAttribute("product") ProductDTO productDTO) {
+        productService.updateProduct(productDTO);
+        return "redirect:/list/" + listId;
     }
 
-//    @GetMapping("/product/delete/{id}")
-//    public String deleteProductById(@PathVariable Integer id){
-//        productService.remove(id);
-//        return "redirect/list/all" + product.getProductList().getId();
-//    }
+    @GetMapping("/list/{listId}/product/incart/{id}")
+    public String changeProductStatus(@PathVariable Integer listId, @PathVariable Integer id) {
+        productService.changeProductBoughtStatus(id);
+        return "redirect:/list/" + listId;
+    }
 
+    @GetMapping("/list/{listId}/product/delete/{id}")
+    public String editProduct(@PathVariable Integer listId, @PathVariable Integer id) {
+        productService.removeProduct(id);
+        return "redirect:/list/" + listId;
+
+    }
 }

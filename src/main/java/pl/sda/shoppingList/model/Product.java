@@ -19,8 +19,7 @@ public class Product {
     private Double quantity;
     private boolean isBought;
 
-    @ManyToOne
-    @JoinColumn
-    private ProductList productList;
+    private Integer productListId;
+
 
 }

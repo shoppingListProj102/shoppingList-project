@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.sda.shoppingList.dto.ProductListDTO;
 import pl.sda.shoppingList.model.ProductList;
 import pl.sda.shoppingList.service.ProductListService;
 import pl.sda.shoppingList.service.impl.ProductListServiceImpl;
@@ -29,26 +30,26 @@ public class ProductListController {
 
     @GetMapping("/list/add")
     public String addList(ModelMap modelMap) {
-        modelMap.addAttribute("emptyList", new ProductList());
+        modelMap.addAttribute("emptyList", new ProductListDTO());
         return "list-add";
     }
 
-    @PostMapping("/list/save")
-    public String saveNewList(@ModelAttribute("emptyList") ProductList productList) {
-        productListService.add(productList);
-        return "redirect:/list/" + productList.getId();
+    @PostMapping("/list/add")
+    public String saveNewList(@ModelAttribute("emptyList") ProductListDTO productListDTO) {
+        productListService.add(productListDTO);
+        return "redirect:/list/all";
     }
 
-    @GetMapping("list/edit/{id}")
+    @GetMapping("/list/edit/{id}")
     public String editList(@PathVariable Integer id, ModelMap modelMap) {
         modelMap.addAttribute("list", productListService.getProductListById(id));
         return "list-edit";
     }
 
-    @PostMapping("/list/update")
-    public String updateList(@ModelAttribute("list") ProductList productList) {
-        productListService.update(productList);
-        return "redirect:/list/" + productList.getId();
+    @PostMapping("/list/edit/{id}")
+    public String updateList(@ModelAttribute("list") ProductListDTO productListDTO) {
+        productListService.update(productListDTO);
+        return "redirect:/list/all";
     }
 
     @GetMapping("/list/delete/{id}")
@@ -60,7 +61,7 @@ public class ProductListController {
     @GetMapping("/list/all")
     public String showAllLists(ModelMap modelMap) {
         modelMap.addAttribute("lists", productListService.getAllLists());
-        return "product-lists";
+        return "list-all";
     }
 
 }

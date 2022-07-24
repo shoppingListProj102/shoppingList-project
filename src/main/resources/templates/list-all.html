@@ -16,13 +16,13 @@
     <tr th:each="list : ${lists}">
         <td th:text="${list.name}"/>
         <td><a th:href="@{/list/{id}/(id=${list.id})}">Show list</a></td>
+        <td><a th:href="@{/list/edit/{id}(id=${list.id})}">Edit list</a></td>
+        <td><a th:href="@{/list/delete/{id}(id=${list.id})}">Remove list</a></td>
     </tr>
     </tbody>
 </table>
 
 <a th:href="@{/list/add}">Add new shopinglist</a>
-
-<!--<a th:href="@{/list/1}">Go to test</a>-->
 
 
 </body>

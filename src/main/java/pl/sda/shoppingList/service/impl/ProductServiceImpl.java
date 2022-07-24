@@ -21,31 +21,31 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public void add(ProductDTO productDTO) {
+    public void addProduct(ProductDTO productDTO, Integer id) {
         Product product = new Product();
-        product.setProductList(productListRepository.findById(productDTO.getListId()).orElse(null));
-        product.setProductName(productDTO.getName());
+        product.setProductListId(id);
+        product.setProductName(productDTO.getProductName());
         product.setQuantity(productDTO.getQuantity());
         product.setUnit(productDTO.getUnit());
         productRepository.save(product);
     }
 
     @Override
-    public void update(ProductDTO productDTO) {
+    public void updateProduct(ProductDTO productDTO) {
         Product product = productRepository.findById(productDTO.getId()).orElse(null);
-        product.setProductName(productDTO.getName());
+        product.setProductName(productDTO.getProductName());
         product.setQuantity(productDTO.getQuantity());
         product.setUnit(productDTO.getUnit());
         productRepository.save(product);
     }
 
     @Override
-    public void remove(Integer id) {
+    public void removeProduct(Integer id) {
         productRepository.deleteById(id);
     }
 
     @Override
-    public void changeStatus(Integer id) {
+    public void changeProductBoughtStatus(Integer id) {
         Product product = productRepository.findById(id).orElse(null);
         product.setBought(!product.isBought());
         productRepository.save(product);

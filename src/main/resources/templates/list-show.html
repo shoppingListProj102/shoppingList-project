@@ -21,13 +21,16 @@
     <td th:text="${product.quantity}"/>
     <td th:text="${product.unit}"/>
     <td th:text="${product.isBought} ? 'YES' : 'NO'"/>
+
+    <td><a th:href="@{/list/__${productList.id}__/product/incart/__${product.id}__}">Change status</a></td>
+    <td><a th:href="@{/list/__${productList.id}__/product/edit/__${product.id}__}">Edit product</a></td>
+    <td><a th:href="@{/list/__${productList.id}__/product/delete/__${product.id}__}">Remove product</a></td>
     </div>
   </tr>
   </tbody>
 </table>
-<!--<a th:href="@{/list/1/product/add}">Add new product</a>-->
-<!--<a th:href="@{/list/{id}(id=${productList.id})/product/add}">Add new product</a>-->
-<a th:href="@{/product/add/listid={id}(id=${productList.id})}">Add new product</a>
+
+<a th:href="@{/list/{id}/product(id=${productList.id})}">Add new product</a>
 <a th:href="@{/list/all}">Return to lists</a>
 
 </body>

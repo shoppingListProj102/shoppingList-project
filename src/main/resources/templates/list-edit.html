@@ -6,7 +6,8 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/list/update}" th:object="${list}">
+<form method="post" th:action="@{/list/edit/__${id}__}" th:object="${list}">
+
 
     <input type="hidden" th:field="*{id}">
 
