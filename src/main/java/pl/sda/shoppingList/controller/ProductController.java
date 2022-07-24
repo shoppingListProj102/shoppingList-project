@@ -66,7 +66,7 @@ public class ProductController {
 
 
         productService.update(productDto);
-        return "redirect:/products/list";
+        return "redirect:/shopinglists/list";
     }
 
 
@@ -83,7 +83,7 @@ public class ProductController {
     public String deleteProductForId(@PathVariable Integer id){
         log.info("Deleted product for id: " + id);
         productService.delete(id);
-        return "redirect:/products/list";
+        return "redirect:/shopinglists/list";
     }
 
 }

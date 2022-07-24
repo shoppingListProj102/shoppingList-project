@@ -19,15 +19,20 @@
     </tr>
     </thead>
     <tbody>
-    <!--  tu znaleźć błąd-->
+
     <tr th:each="product : ${shopinglist.products}">
         <td th:text="${product.name}"/>
         <td th:text="${product.quantity}"/>
         <td th:text="${product.unit}"/>
         <td th:text="${product.description}"/>
         <td th:text="${product.isBought} ? 'YES' : 'NO'"/>
+
+
+
+        <td>  <a th:href="@{/products/edit/{id}/(id=${product.id})}"> Edit product</a> </td>
+        <td>  <a th:href="@{/products/delete/{id}/(id=${product.id})}">Delete product</a> </td>
     </tr>
-    <!--  tu znaleźć błąd-->
+
 
     </tbody>
 </table>
