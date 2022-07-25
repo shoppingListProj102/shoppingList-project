@@ -13,5 +13,4 @@ public class ProductDTO {
     private double quantity;
 
 
-
 }
