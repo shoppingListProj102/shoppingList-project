@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit product</title>
+  <meta charset="UTF-8">
+  <title>Edit list</title>
 </head>
 <body>
 
-<form method="post" th:action="@{/products/postedit}" th:object="${editProduct}">
+<form method="post" th:action="@{/list/__${listId}__/product/edit/__${product.id}__}" th:object="${product}">
 
 
-    <input type="hidden" th:field="*{id}">
+  <input type="hidden" th:field="*{id}">
 
+  <label>
+    Name:
+    <input type="text" th:field="*{productName}">
+    <input type="text" th:field="*{quantity}">
+    <input type="text" th:field="*{unit}">
+  </label>
 
-    <label>
-        Nazwa produktu:
-        <input type="text" th:field="*{name}"/>
-    </label>
-
-    <label>
-        ILość:
-        <input type="text" th:field="*{quantity}"/>
-    </label>
-
-    <label>
-        Jednostka:
-        <input type="text" th:field="*{unit}"/>
-    </label>
-
-    <label>
-        Opis/uwagi:
-        <input type="text" th:field="*{description}"/>
-    </label>
-
-<!--    <label>-->
-<!--        Zakupiony/niezakupiony:-->
-<!--        <input type="text" th:field="*{isBought}? 'true' : 'false'"/>-->
-<!--    </label>-->
-
-
-    <button type="submit">Edytuj produkt</button>
-
+  <button type="submit">Update list</button>
 
 </form>
-
-<a th:href="@{/products/list}">Return to product lists</a>
 
 </body>
 </html>

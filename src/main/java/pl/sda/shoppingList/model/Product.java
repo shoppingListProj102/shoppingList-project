@@ -1,37 +1,25 @@
 package pl.sda.shoppingList.model;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
-
+@Entity
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
 public class Product {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private String name;
-
-    private Integer quantity;
-
+    private String productName;
     private String unit;
-
-    private String description;
-
+    private Double quantity;
     private boolean isBought;
 
-
-    @ManyToOne
-    @JoinColumn
-    private ShopingList shopingList;
+    private Integer productListId;
 
 
 }
