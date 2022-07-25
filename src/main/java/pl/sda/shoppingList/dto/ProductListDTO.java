@@ -7,7 +7,7 @@ import lombok.Setter;
 public class ProductListDTO {
 
 
-    Integer id;
-    String name;
+    private Integer id;
+    private String name;
 
 }
