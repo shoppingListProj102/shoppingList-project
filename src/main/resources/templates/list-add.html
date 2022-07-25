@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create list</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/list/add}" th:object="${emptyList}">
+
+    <label>
+        Name:
+        <input type="text" th:field="*{name}"/>
+    </label>
+
+    <button type="submit">Create list</button>
+
+</form>
+
+<a th:href="@{/list/all}">Return to lists</a>
+
+</body>
+</html>

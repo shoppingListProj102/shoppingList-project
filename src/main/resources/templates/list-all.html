@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product lists</title>
+</head>
+<body>
+
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="list : ${lists}">
+        <td th:text="${list.name}"/>
+        <td><a th:href="@{/list/{id}/(id=${list.id})}">Show list</a></td>
+        <td><a th:href="@{/list/edit/{id}(id=${list.id})}">Edit list</a></td>
+        <td><a th:href="@{/list/delete/{id}(id=${list.id})}">Remove list</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/list/add}">Add new shopinglist</a>
+
+
+</body>
+</html>
