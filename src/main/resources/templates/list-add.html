@@ -3,21 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Create list</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 </head>
 <body>
+<div class="container-sm text-center">
 
 <form method="post" th:action="@{/list/add}" th:object="${emptyList}">
 
-    <label>
-        Name:
-        <input type="text" th:field="*{name}"/>
-    </label>
 
-    <button type="submit">Create list</button>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-default">List name</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{name}">
+    </div>
+
+    <p>
+        <button type="submit" class="btn btn-outline-success"><i class="bi bi-card-checklist"></i> Create list</button>
+    </p>
 
 </form>
 
-<a th:href="@{/list/all}">Return to lists</a>
-
+    <a th:href="@{/list/all}" class="btn btn-outline-primary" ><i class="bi bi-box-arrow-in-left"></i> Return to lists</a>
+</div>
 </body>
 </html>

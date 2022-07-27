@@ -12,6 +12,8 @@
 
 - [Spring boot] (https://spring.io/projects/spring-boot)
 - [Thymeleaf] (https://www.thymeleaf.org/)
+- [H2] (https://www.h2database.com/html/main.html)
+- [JPA] (https://spring.io/projects/spring-data-jpa)
 
 ## Authors
 

@@ -12,6 +12,7 @@ import pl.sda.shoppingList.model.ProductList;
 import pl.sda.shoppingList.service.ProductListService;
 import pl.sda.shoppingList.service.impl.ProductListServiceImpl;
 
+
 @Slf4j
 @Controller
 public class ProductListController {
@@ -37,6 +38,7 @@ public class ProductListController {
     @PostMapping("/list/add")
     public String saveNewList(@ModelAttribute("emptyList") ProductListDTO productListDTO) {
         productListService.add(productListDTO);
+        log.info("Adds new list: " + productListDTO.getName());
         return "redirect:/list/all";
     }
 
@@ -49,12 +51,14 @@ public class ProductListController {
     @PostMapping("/list/edit/{id}")
     public String updateList(@ModelAttribute("list") ProductListDTO productListDTO) {
         productListService.update(productListDTO);
+        log.info("Edit list: " + productListDTO.getName());
         return "redirect:/list/all";
     }
 
     @GetMapping("/list/delete/{id}")
     public String deleteListById(@PathVariable Integer id) {
         productListService.remove(id);
+        log.info("Deleted list by id: " + id);
         return "redirect:/list/all";
     }
 
