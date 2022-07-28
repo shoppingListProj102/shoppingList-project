@@ -6,7 +6,7 @@
 - Delating shopping lists,
 
 ## Demo
-- [Demo] (link do heroku)
+- [Demo] (https://shoping-list-102group.herokuapp.com)
 
 ## Tech stack
 
