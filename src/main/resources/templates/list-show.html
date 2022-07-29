@@ -9,22 +9,24 @@
 <body>
 <div class="container-sm text-center">
 
-<table class="table">
-  <thead>
-     <tr class="table-primary">
+<table class="table table-sm">
+  <thead th:classappend="table-primary">
+     <tr>
        <th>Name</th>
        <th>Quantity</th>
        <th>Unit</th>
        <th>Bought?</th>
+         <th></th>
+         <th></th>
+         <th></th>
     </tr>
   </thead>
-  <tbody>
-    <tr th:each="product : ${productList.productList}">
-      <td class="table-success" th:text="${product.productName}"/>
-      <td class="table-success" th:text="${product.quantity}"/>
-      <td class="table-success" th:text="${product.unit}"/>
-      <td class="table-success" th:text="${product.isBought} ? 'YES' : 'NO'"/>
-
+  <tbody class="table-light">
+    <tr th:each="product : ${productList.productList}" th:classappend="${product.isBought} ? 'table-danger'">
+      <td th:text="${product.productName}"/>
+      <td th:text="${product.quantity}"/>
+      <td th:text="${product.unit}"/>
+      <td th:text="${product.isBought} ? 'YES' : 'NO'"/>
 
         <td><a th:href="@{/list/__${productList.id}__/product/incart/__${product.id}__}" class="btn btn-outline-success"><i class="bi bi-cart4"></i>Change status</a></td>
         <td><a th:href="@{/list/__${productList.id}__/product/edit/__${product.id}__}" class="btn btn-outline-warning btn-sm" ><i class="bi bi-pencil-fill"></i>Edit product</a></td>
@@ -33,6 +35,32 @@
     </tr>
   </tbody>
 </table>
+
+
+<!--    <ul class="list-group list-group-horizontal-sm">-->
+
+<!--        <li class="list-group-item">Name</li>-->
+<!--        <li class="list-group-item">Quantity</li>-->
+<!--        <li class="list-group-item">Unit</li>-->
+<!--        <li class="list-group-item">Bought?</li>-->
+
+<!--    </ul>-->
+
+<!--    <ul class="list-group list-group-horizontal-sm" th:each="product : ${productList.productList}">-->
+
+<!--        <li class="list-group-item" th:text="${product.productName}"></li>-->
+<!--        <li class="list-group-item" th:text="${product.quantity}"></li>-->
+<!--        <li class="list-group-item" th:text="${product.unit}"></li>-->
+<!--        <li class="list-group-item" th:text="${product.isBought} ? 'YES' : 'NO'"></li>-->
+<!--            <p>-->
+
+<!--                <a th:href="@{/list/__${productList.id}__/product/incart/__${product.id}__}" class="btn btn-outline-success"><i class="bi bi-cart4"></i>Change status</a>-->
+<!--                <a th:href="@{/list/__${productList.id}__/product/edit/__${product.id}__}" class="btn btn-outline-warning btn-sm" ><i class="bi bi-pencil-fill"></i>Edit product</a>-->
+<!--                <a th:href="@{/list/__${productList.id}__/product/delete/__${product.id}__}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i>Remove product</a>-->
+<!--            </p>-->
+
+<!--    </ul>-->
+
 
 <p>
   <a th:href="@{/list/{id}/product(id=${productList.id})}" class="btn btn-outline-success" ><i class="bi bi-plus-circle-fill"></i> Add new product</a>
