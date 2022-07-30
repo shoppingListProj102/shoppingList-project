@@ -7,7 +7,7 @@
 - Changing status of products in lists,
 
 ## Demo
-- [Demo] (https://shoping-list-102group.herokuapp.com)
+- [Demo] (https://shoping-list-102sda.herokuapp.com)
 
 ## Tech stack
 
