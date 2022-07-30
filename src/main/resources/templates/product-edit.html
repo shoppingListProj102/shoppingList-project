@@ -11,23 +11,19 @@
   <h2>Edit product</h2>
 <form method="post" th:action="@{/list/__${listId}__/product/edit/__${product.id}__}" th:object="${product}">
   <input type="hidden" th:field="*{id}">
-
-  <div class="form-control-lg">
-    <label class="form-label">Product name:</label>
+  <div class="input-group input-group-lg mt-3 mb-3 justify-content-center">
+    <span class="input-group-text">Product name:</span>
     <input type="text" th:field="*{productName}">
   </div>
-  <div class="form-group mt-3 mb-3">
-    <label class="form-label">Quantity:</label>
+  <div class="input-group mt-3 mb-3 justify-content-center">
+    <span class="input-group-text">Quantity:</span>
     <input type="number" th:field="*{quantity}">
-    <label class="form-label">Unit:</label>
+    <span class="input-group-text ms-2">Unit:</span>
     <input type="text" th:field="*{unit}">
   </div>
-  <div class="col-auto">
-    <button type="submit" class="btn btn-success mb-3">Update product</button>
-  </div>
-
+  <button type="submit" class="btn btn-success mb-3"><i class="bi bi-pencil-square"></i> Edit product</button>
 </form>
-  <a th:href="@{/list/all}" class="btn btn-info"><i class="bi bi-arrow-left"></i>Return to lists</a>
+  <a th:href="@{/list/{id}(id=${listId})}"class="btn btn-outline-primary"><i class="bi bi-box-arrow-in-left"></i> Return to list</a>
 </div>
 </body>
 </html>
