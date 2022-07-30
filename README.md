@@ -2,7 +2,7 @@
 
 - Creating new shopping lists,
 - Modifying and removing existing lists
-- Adding, removing, editing products
+- Adding, removing and editing products
 - Changing status of products in lists
 
 
