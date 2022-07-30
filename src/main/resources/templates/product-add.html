@@ -8,23 +8,22 @@
 </head>
 <body>
 <div class="container-sm text-center">
-
+    <h2>Add product</h2>
 
 <form method="post" th:action="@{/list/__${listId}__/product}" th:object="${emptyProduct}">
 
 
-
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{productName}">
+    <div class="input-group mt-3 mb-3 justify-content-center">
+        <span class="input-group-text">Product name:</span>
+        <input type="text" th:field="*{productName}" placeholder="Product name...">
     </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text">Quantity</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{quantity}">
+    <div class="input-group mt-3 mb-3 justify-content-center">
+        <span class="input-group-text">Quantity:</span>
+        <input type="text" th:field="*{quantity}" placeholder="Quantity...">
     </div>
-    <div class="input-group mb-3">
-        <span class="input-group-text">Unit</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{unit}">
+    <div class="input-group mt-3 mb-3 justify-content-center">
+        <span class="input-group-text">Unit:</span>
+        <input type="text" th:field="*{unit}" placeholder="Unit...">
     </div>
 
     <p>
@@ -34,7 +33,6 @@
 </form>
 
     <a th:href="@{/list/{id}(id=${listId})}" class="btn btn-outline-primary" ><i class="bi bi-box-arrow-in-left"></i> Return to list</a>
-
 </div>
 </body>
 </html>

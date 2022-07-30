@@ -9,21 +9,22 @@
 <body>
 <div class="container-sm text-center">
 
-<form method="post" th:action="@{/list/edit/__${id}__}" th:object="${list}">
+    <h2>Edit list</h2>
 
+    <form method="post" th:action="@{/list/edit/__${id}__}" th:object="${list}">
     <input type="hidden" th:field="*{id}">
 
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" th:field="*{name}">
+    <div class="input-group mt-3 mb-3 justify-content-center">
+        <span class="input-group-text">List name:</span>
+        <input type="text" th:field="*{name}">
     </div>
 
     <p>
         <button type="submit" class="btn btn-outline-warning btn-sm"><i class="bi bi-pencil-square"></i> Update list</button>
     </p>
+    </form>
 
-</form>
-
+    <a th:href="@{/list/all}" class="btn btn-outline-primary" ><i class="bi bi-box-arrow-in-left"></i> Return to lists</a>
 </div>
 </body>
 </html>
