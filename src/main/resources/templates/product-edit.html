@@ -10,7 +10,7 @@
 <div class="container-sm text-center">
     <h2>Edit product</h2>
 
-<form method="post" th:action="@{/list/__${listId}__/product/edit/__${product.id}__}" th:object="${product}">
+<form method="post" th:action="@{/list/__${listId}__/product/__${product.id}__/edit}" th:object="${product}">
 
 
     <input type="hidden" th:field="*{id}">

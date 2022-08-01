@@ -14,8 +14,8 @@
         <li th:each="list : ${lists}">
             <p>
                 <a th:href="@{/list/{id}/(id=${list.id})}" th:text="${list.name}"  class="btn btn-primary btn-lg fw-bolder"/>
-                <a th:href="@{/list/edit/{id}(id=${list.id})}" class="btn btn-outline-warning btn-sm" ><i class="bi bi-pencil-fill"></i>Edit list</a>
-                <a th:href="@{/list/delete/{id}(id=${list.id})}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i>Remove list</a>
+                <a th:href="@{/list/__${list.id}__/edit}" class="btn btn-outline-warning btn-sm" ><i class="bi bi-pencil-fill"></i>Edit list</a>
+                <a th:href="@{/list/__${list.id}__/delete}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i>Remove list</a>
             </p>
         </li>
     </ul>

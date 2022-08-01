@@ -42,20 +42,20 @@ public class ProductListController {
         return "redirect:/list/all";
     }
 
-    @GetMapping("/list/edit/{id}")
+    @GetMapping("/list/{id}/edit")
     public String editList(@PathVariable Integer id, ModelMap modelMap) {
         modelMap.addAttribute("list", productListService.getProductListById(id));
         return "list-edit";
     }
 
-    @PostMapping("/list/edit/{id}")
+    @PostMapping("/list/{id}/edit")
     public String updateList(@ModelAttribute("list") ProductListDTO productListDTO) {
         productListService.update(productListDTO);
         log.info("Edit list: " + productListDTO.getName());
         return "redirect:/list/all";
     }
 
-    @GetMapping("/list/delete/{id}")
+    @GetMapping("/list/{id}/delete")
     public String deleteListById(@PathVariable Integer id) {
         productListService.remove(id);
         log.info("Deleted list by id: " + id);

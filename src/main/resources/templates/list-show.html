@@ -28,9 +28,9 @@
         <td th:text="${product.unit}"/>
         <td th:text="${product.isBought} ? 'YES' : 'NO'"/>
 
-        <td><a th:href="@{/list/__${productList.id}__/product/incart/__${product.id}__}" class="btn btn-outline-success"><i class="bi bi-cart4"></i>Change status</a></td>
-        <td><a th:href="@{/list/__${productList.id}__/product/edit/__${product.id}__}" class="btn btn-outline-warning btn-sm" ><i class="bi bi-pencil-fill"></i>Edit product</a></td>
-        <td><a th:href="@{/list/__${productList.id}__/product/delete/__${product.id}__}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i>Remove product</a></td>
+        <td><a th:href="@{/list/__${productList.id}__/product/__${product.id}__/incart}" class="btn btn-outline-success"><i class="bi bi-cart4"></i>Change status</a></td>
+        <td><a th:href="@{/list/__${productList.id}__/product/__${product.id}__/edit}" class="btn btn-outline-warning btn-sm" ><i class="bi bi-pencil-fill"></i>Edit product</a></td>
+        <td><a th:href="@{/list/__${productList.id}__/product/__${product.id}__/delete}" class="btn btn-outline-danger btn-sm"><i class="bi bi-trash"></i>Remove product</a></td>
 
       </tr>
     </tbody>
