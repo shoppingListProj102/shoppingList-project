@@ -31,30 +31,34 @@ public class ProductController {
     @PostMapping("/list/{id}/product")
     public String saveProduct(@PathVariable Integer id, @ModelAttribute("emptyProduct") ProductDTO productDTO) {
         productService.addProduct(productDTO, id);
+        log.info("Adds new product " + productDTO.getProductName() + " to the list of id: " + id);
         return "redirect:/list/" + id;
     }
 
-    @GetMapping("/list/{listId}/product/edit/{id}")
+    @GetMapping("/list/{listId}/product/{id}/edit")
     public String editProduct(@PathVariable Integer listId, @PathVariable Integer id, ModelMap modelMap) {
         modelMap.addAttribute("product", productService.getProductById(id));
         modelMap.addAttribute("listId", listId);
         return "product-edit";
     }
 
-    @PostMapping("/list/{listId}/product/edit/{id}")
+    @PostMapping("/list/{listId}/product/{id}/edit")
     public String updateProduct(@PathVariable Integer listId, @PathVariable Integer id, @ModelAttribute("product") ProductDTO productDTO) {
         productService.updateProduct(productDTO);
+        log.info("Edit product " + productDTO.getProductName() + " to the list of id: " + id);
         return "redirect:/list/" + listId;
     }
 
-    @GetMapping("/list/{listId}/product/incart/{id}")
+    @GetMapping("/list/{listId}/product/{id}/incart")
     public String changeProductStatus(@PathVariable Integer listId, @PathVariable Integer id) {
         productService.changeProductBoughtStatus(id);
+        log.info("Changed status product: " + productService.getProductById(id).getProductName() + " of id " + id);
         return "redirect:/list/" + listId;
     }
 
-    @GetMapping("/list/{listId}/product/delete/{id}")
-    public String editProduct(@PathVariable Integer listId, @PathVariable Integer id) {
+    @GetMapping("/list/{listId}/product/{id}/delete")
+    public String deleteProduct(@PathVariable Integer listId, @PathVariable Integer id) {
+        log.info("Deleted product: " + productService.getProductById(id).getProductName() + " of id: " + id);
         productService.removeProduct(id);
         return "redirect:/list/" + listId;
 

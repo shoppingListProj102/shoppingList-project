@@ -39,7 +39,7 @@ public class ProductListServiceImpl implements ProductListService {
 
     @Override
     public List<ProductList> getAllLists() {
-       return productListRepository.findAll();
+        return productListRepository.findAll();
     }
 
     @Override
