@@ -25,5 +25,5 @@
 - ☑️Simple Readme
 - ☑️Add H2 Database
 - ☑️Deployment to Heroku
-- ⬜ Improved html views
+- ☑️Improved html views
 - ⬜ Expanding the admin options

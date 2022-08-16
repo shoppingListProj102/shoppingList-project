@@ -1,0 +1,12 @@
+.shoping_front {
+    background-image: url(../files/checklista_unmark.png);
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.day_list {
+    background-image: url(../files/day_list.png);
+    background-position: top;
+    background-attachment: fixed;
+    height: 50vh;
+}
