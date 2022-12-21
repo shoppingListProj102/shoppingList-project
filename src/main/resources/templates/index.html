@@ -10,7 +10,7 @@
     <title>Shopping lists</title>
     <link rel="stylesheet" href="../css/style.css" />
 </head>
-<body class="shoping_front">
+<body th:style="'background-image: url(/files/checklista_unmark.png)'">
 
 <div class="container-sm text-center" >
 
@@ -29,7 +29,7 @@
     <a th:href="@{/list/add}" class="btn btn-outline-success" ><i class="bi bi-file-earmark-plus-fill"></i>Add new shopinglist</a>
 </div>
 <footer class="py-5 ">
-    <div class="container"><p class="m-0 text-center text-black">Copyright &copy; ShopingList 2022</p></div>
+    <div class="container"><p class="m-0 text-center text-black">Copyright &copy; kubastomus <span th:text="${#dates.year(#dates.createNow())}"></span></p></div>
 </footer>
 
 </body>
